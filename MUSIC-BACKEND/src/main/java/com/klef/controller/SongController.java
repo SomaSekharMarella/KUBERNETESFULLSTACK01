@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 @RestController
 @RequestMapping("/api/songs")
@@ -19,6 +21,12 @@ public class SongController {
     public List<Song> getAllSongs() {
         return songService.getAllSongs();
     }
+
+    @GetMapping("/")
+    public String home() {
+        return "Welcome to the Song Management API";
+    }
+    
 
     @PostMapping
     public String addSong(@RequestBody Song song) {
